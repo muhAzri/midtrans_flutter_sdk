@@ -1,8 +1,9 @@
 package com.muhazri.midtrans_flutter_sdk
 
 import android.app.Activity
-import com.muhazri.midtrans_flutter_sdk.config.InitializeHandler
-import com.muhazri.midtrans_flutter_sdk.payment.MidtransPayment
+import com.muhazri.midtrans_flutter_sdk.config.InitializeMidtrans
+import com.muhazri.midtrans_flutter_sdk.config.SetCustomUiMidtrans
+import com.muhazri.midtrans_flutter_sdk.payment.MidtransStartPaymentFlow
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -28,8 +29,9 @@ class MidtransFlutterSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware 
 
   override fun onMethodCall(call: MethodCall, result: Result) {
     when(call.method) {
-      "initialize" -> InitializeHandler(call, activity, channel)
-      "startPaymentUiFlow" -> MidtransPayment.startPaymentUiFlow(call, activity, result)
+      "initialize" -> InitializeMidtrans(call,activity,channel)
+      "setUiKitCustomSetting" -> SetCustomUiMidtrans(call,result)
+      "startPaymentUiFlow" -> MidtransStartPaymentFlow(call,activity,result)
     }
   }
 
