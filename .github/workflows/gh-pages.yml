@@ -17,9 +17,7 @@ jobs:
 
       - name: Build Dart Docs
         run: |
-          # Add commands here to generate your Dart docs HTML files
-          # For example:
-          # dartdoc
+          dart doc .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
