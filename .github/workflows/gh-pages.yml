@@ -1,0 +1,28 @@
+name: Deploy Dart Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to deploy from
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Dart SDK
+        uses: dart-lang/setup-dart@v1
+
+      - name: Build Dart Docs
+        run: |
+          # Add commands here to generate your Dart docs HTML files
+          # For example:
+          # dartdoc
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./doc  # Change this to the directory containing your HTML files
