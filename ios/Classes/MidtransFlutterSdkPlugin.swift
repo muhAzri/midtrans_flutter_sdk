@@ -23,7 +23,7 @@ public class MidtransFlutterSdkPlugin: NSObject, FlutterPlugin {
         MidtransHandler().initConfig(call, result: result)
     case "startPaymentUiFlow":
         MidtransHandler().startPaymentFlow(call, result: result)
-    case "setUIKitCustomSettingWithCall":
+    case "setUiKitCustomSetting":
         MidtransHandler().setUiKitCustom(call,result:result)
     default:
       result(FlutterMethodNotImplemented)
